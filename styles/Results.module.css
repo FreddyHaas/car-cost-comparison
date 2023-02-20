@@ -459,7 +459,8 @@
     }
 
     .motorTypeCheap,
-    .bodyTypeCheap {
+    .bodyTypeCheap,
+    .detailsButtonContainer {
         display: none;
     }
 

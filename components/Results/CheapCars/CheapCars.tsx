@@ -120,7 +120,7 @@ function CheapCars() {
                                 </div>
                             </Link>
                         </td>
-                        <td>
+                        <td className={style.detailsButtonContainer}>
                             <Link
                                 href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                                 className={style.detailsButton}
