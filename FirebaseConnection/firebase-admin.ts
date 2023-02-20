@@ -1,15 +1,11 @@
 import * as admin from "firebase-admin"
 
-if (process.env.PRIVATE_KEY) {
-    const { privateKey } = JSON.parse(process.env.PRIVATE_KEY)
+if (process.env.FIREBASE_SERVICE_ACCOUNT_KEY) {
+    const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY)
 
     if (!admin.apps.length) {
         admin.initializeApp({
-            credential: admin.credential.cert({
-                projectId: process.env.PROJECT_ID,
-                privateKey,
-                clientEmail: process.env.CLIENT_EMAIL,
-            }),
+            credential: admin.credential.cert(serviceAccount),
         })
     }
 }
