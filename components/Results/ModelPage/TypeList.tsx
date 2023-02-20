@@ -86,7 +86,7 @@ function TypeList({ typeList, powerDifferences }: Props) {
     })
 
     // Diplay types in table
-    typeList.forEach((type) => {
+    typeList.forEach((type, index) => {
         names.push(<th>{type.name}</th>)
         prices.push(<td>{type.price}</td>)
         if (type.consumption.consumptionWLTP === "") {
@@ -138,16 +138,18 @@ function TypeList({ typeList, powerDifferences }: Props) {
                         €
                     </td>
                 )
-            } else if (deterioration.length === 0) {
-                deterioration.push(<td>n/a</td>)
-                fuel.push(<td>n/a</td>)
-                tax.push(<td>n/a</td>)
-                insurance.push(<td>n/a</td>)
-                repairAndMaintenance.push(<td>n/a</td>)
-                total.push(<td>n/a</td>)
-                totalExDeterioration.push(<td>n/a</td>)
             }
         })
+        // Check if there was no cost item found for this type (i.e. there was nothing added for deterioration cost)
+        if (deterioration.length < index + 1) {
+            deterioration.push(<td>n/a</td>)
+            fuel.push(<td>n/a</td>)
+            tax.push(<td>n/a</td>)
+            insurance.push(<td>n/a</td>)
+            repairAndMaintenance.push(<td>n/a</td>)
+            total.push(<td>n/a</td>)
+            totalExDeterioration.push(<td>n/a</td>)
+        }
     })
 
     if (powerDifferences) {
