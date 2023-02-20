@@ -106,6 +106,7 @@
     border: solid 1px darkgrey;
     border-radius: 4px;
     background: rgb(245, 245, 245);
+    color: rgb(44, 44, 44);
 }
 
 .formFieldDriving > select {
@@ -264,6 +265,11 @@
         justify-content: space-between;
         width: 50%;
         height: 100%;
+    }
+
+    .searchFormSmall > .fieldContainer > div:nth-child(5),
+    .searchFormSmall > .fieldContainer > div:nth-child(6) {
+        display: none;
     }
 
     .searchFormSmall > .fieldContainer > div > select {
