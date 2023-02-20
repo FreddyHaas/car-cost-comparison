@@ -1,0 +1,15 @@
+.pageContainer {
+    width: 100vw;
+    min-height: calc(100vh - 90px);
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.notFoundPage {
+    font-size: 22px;
+    font-weight: 600;
+}

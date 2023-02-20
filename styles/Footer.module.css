@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    gap: 5px;
+    font-size: 14px;
+    background: rgb(215, 215, 215);
+    cursor: pointer;
+}
+
+.Icon {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s linear;
+}
+
+.Icon:hover {
+    transform: rotate(360deg);
+}

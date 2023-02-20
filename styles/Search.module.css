@@ -1,0 +1,318 @@
+.searchContainer {
+    background: none;
+    border-radius: 10px;
+}
+
+.searchForm,
+.searchFormCheap {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    gap: 30px;
+    background-color: white;
+    padding: 30px;
+    border-left: solid 1px lightgrey;
+    border-right: solid 1px lightgrey;
+    border-bottom: solid 1px lightgrey;
+    position: relative;
+}
+
+.searchFormCheap {
+    gap: 20px;
+}
+
+.searchFormCheap > button {
+    margin-top: 20px;
+}
+
+.searchFormSmall,
+.searchFormCheapSmall {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    gap: 30px;
+    background-color: white;
+    padding: 20px;
+    border: solid 1px lightgrey;
+    border-radius: 4px;
+    position: relative;
+}
+
+.searchOptions {
+    display: flex;
+    gap: 5px;
+}
+
+.searchSelector {
+    background: lightgrey;
+    margin: 0px;
+    padding: 10px 0px;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+    border: none;
+    width: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+}
+
+.searchSelector:hover {
+    background: darkgrey;
+}
+
+#selectedSearch {
+    background-color: white;
+    border-top: solid 1px lightgrey;
+    border-left: solid 1px lightgrey;
+    border-right: solid 1px lightgrey;
+}
+
+.fieldContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12px;
+}
+
+.errorMessageDisabled {
+    display: none;
+}
+
+.formField,
+.formFieldDriving {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.formField > label,
+.formFieldDriving > label {
+    font-size: 14px;
+    color: rgb(76, 76, 76);
+    position: relative;
+}
+
+.formField > select,
+.formFieldDriving > select {
+    font-size: 16px;
+    padding: 2px;
+    border: solid 1px darkgrey;
+    border-radius: 4px;
+    background: rgb(245, 245, 245);
+}
+
+.formFieldDriving > select {
+    background: white;
+}
+
+.bodyTypeImg {
+    max-width: 60px;
+    height: auto;
+    cursor: pointer;
+}
+
+.searchIcon {
+    display: none;
+}
+
+.checkboxContainer {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px;
+    background-color: white;
+    color: rgb(96, 96, 96);
+    border: solid 1px lightgrey;
+    border-radius: 4px;
+    box-shadow: 0px 0px 3px 1px rgb(230, 230, 230);
+    cursor: pointer;
+    min-height: 55px;
+}
+
+.checkboxContainer:hover {
+    border: solid 1px #184d47;
+    box-shadow: 0px 0px 3px 1px #184d47;
+    color: #184d47;
+}
+
+#checkboxContainer {
+    min-height: 15px;
+}
+
+.styledInput {
+    display: none;
+    visibility: hidden;
+}
+
+.styledInput:checked ~ .checkboxContainer {
+    border: solid 1px #184d47;
+    box-shadow: 0px 0px 3px 1px #184d47;
+    color: #184d47;
+}
+
+.optionsBodyType {
+    margin-top: 10px;
+    display: grid;
+    max-width: 100%;
+    gap: 4px;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    border: none;
+}
+
+.options {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    max-width: 460px;
+    flex-wrap: wrap;
+    align-content: stretch;
+    border: none;
+}
+
+.optionsSmall {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    max-width: 280px;
+    flex-wrap: wrap;
+    align-content: stretch;
+    border: none;
+}
+
+.headerCheap {
+    margin-top: 15px;
+}
+
+.block {
+    display: inline-block;
+}
+
+/* Media queries for homepage form */
+
+@media (max-width: 1100px) {
+    .searchForm,
+    .searchFormCheap {
+        width: 400px;
+    }
+
+    .searchFormCheap > div > h3 {
+        font-size: 16px;
+    }
+
+    .searchOptions > button {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 935px) {
+    .searchForm,
+    .searchFormCheap {
+        width: min(500px, 80vw);
+    }
+
+    .searchFormCheap > div > h3 {
+        font-size: 18px;
+    }
+}
+
+/* Media queries for small search form  */
+@media (max-width: 1190px) {
+    .searchFormCheapSmall {
+        display: none;
+    }
+
+    .searchFormSmall {
+        width: min(900px, 95vw);
+        padding: 0px;
+        gap: 0px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .searchFormSmall > .fieldContainer {
+        padding: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+        width: 45%;
+    }
+
+    .searchFormSmall > button {
+        margin: 8px;
+        width: 10%;
+        font-size: 18px;
+    }
+
+    .searchFormSmall > .fieldContainer > h3 {
+        display: none;
+    }
+
+    .searchFormSmall > .fieldContainer > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50%;
+        height: 100%;
+    }
+
+    .searchFormSmall > .fieldContainer > div > select {
+        font-size: 14px;
+        background-color: rgb(245, 245, 245);
+    }
+}
+
+@media (max-width: 770px) {
+    .searchFormSmall > button {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 590px) {
+    .searchFormSmall > .fieldContainer:nth-child(2) {
+        display: none;
+    }
+
+    .searchFormSmall > .fieldContainer {
+        width: 100%;
+    }
+
+    .searchFormSmall .searchIcon {
+        display: block;
+        font-size: 18px;
+    }
+
+    .searchFormSmall .buttonText {
+        display: none;
+    }
+
+    .searchFormSmall > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 330px) {
+    .searchFormSmall > .fieldContainer {
+        padding: 4px;
+    }
+
+    .searchFormSmall > button {
+        margin: 0px;
+        width: fit-content;
+        padding: 2px;
+        font-size: 18px;
+    }
+}
