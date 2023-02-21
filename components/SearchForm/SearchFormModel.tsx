@@ -109,23 +109,25 @@ function SearchFormModel({ smallView }: Props) {
     // Handle submit
     function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
+
+        const rangeSlug = range?.replaceAll("/", "_") // Convention to replace slashes with % in slug to avoid errors
         if (
             brand !== undefined &&
             range !== undefined &&
             variant !== undefined &&
             model !== undefined
         ) {
-            return router.push(`/${brand}/${range}/${variant}/${model}`)
+            return router.push(`/${brand}/${rangeSlug}/${variant}/${model}`)
         }
         if (
             brand !== undefined &&
             range !== undefined &&
             variant !== undefined
         ) {
-            return router.push(`/${brand}/${range}/${variant}`)
+            return router.push(`/${brand}/${rangeSlug}/${variant}`)
         }
         if (brand !== undefined && range !== undefined) {
-            return router.push(`/${brand}/${range}`)
+            return router.push(`/${brand}/${rangeSlug}`)
         }
         if (brand !== undefined) {
             return router.push(`/${brand}`)

@@ -36,20 +36,22 @@ function VariantDisplay({ variantList, displayNone, brand, range }: Props) {
     const variants: JSX.Element[] = []
 
     variantList.forEach((variant) => {
+        const rangeSlug = range.replaceAll("/", "_") // Avoids errors in URL due to slashes
+
         variants.push(
             <tr key={variant.name} className={style.tableRow}>
                 <td>
-                    <Link href={`/${brand}/${range}/${variant.name}`}>
+                    <Link href={`/${brand}/${rangeSlug}/${variant.name}`}>
                         {variant.name}
                     </Link>
                 </td>
                 <td className={style.bodyType}>
-                    <Link href={`/${brand}/${range}/${variant.name}`}>
+                    <Link href={`/${brand}/${rangeSlug}/${variant.name}`}>
                         {variant.bodyType}
                     </Link>
                 </td>
                 <td>
-                    <Link href={`/${brand}/${range}/${variant.name}`}>
+                    <Link href={`/${brand}/${rangeSlug}/${variant.name}`}>
                         {variant.costs === undefined ||
                         variant.costs.costScore === null ? (
                             "n/a"
@@ -59,7 +61,7 @@ function VariantDisplay({ variantList, displayNone, brand, range }: Props) {
                     </Link>
                 </td>
                 <td>
-                    <Link href={`/${brand}/${range}/${variant.name}`}>
+                    <Link href={`/${brand}/${rangeSlug}/${variant.name}`}>
                         <div className={style.prices}>
                             {variant.costs?.cost
                                 ? `ab ${variant.costs.cost.toLocaleString(
@@ -71,7 +73,7 @@ function VariantDisplay({ variantList, displayNone, brand, range }: Props) {
                 </td>
                 <td>
                     <Link
-                        href={`/${brand}/${range}/${variant.name}`}
+                        href={`/${brand}/${rangeSlug}/${variant.name}`}
                         className={style.detailsButton}
                     >
                         <span>Ausstattung</span>{" "}

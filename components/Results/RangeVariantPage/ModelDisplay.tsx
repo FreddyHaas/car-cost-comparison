@@ -63,11 +63,13 @@ function ModelDisplay({ variant, displayNone }: Props) {
             motor = "Benziner (Mild-Hybrid)"
         }
 
+        const rangeSlug = variant.name.range.replaceAll("/", "_") // Avoids errors in URL due to slashes
+
         models.push(
             <tr key={carModel.modelNameShort} className={style.tableRow}>
                 <td>
                     <Link
-                        href={`/${variant.name.brand}/${variant.name.range}/${variant.name.variant}/${carModel.modelNameShort}`}
+                        href={`/${variant.name.brand}/${rangeSlug}/${variant.name.variant}/${carModel.modelNameShort}`}
                     >
                         {carModel.modelNameShort.slice(0, 1) === "("
                             ? carModel.modelNameShort.slice(1, -1)
@@ -76,14 +78,14 @@ function ModelDisplay({ variant, displayNone }: Props) {
                 </td>
                 <td className={style.fuel}>
                     <Link
-                        href={`/${variant.name.brand}/${variant.name.range}/${variant.name.variant}/${carModel.modelNameShort}`}
+                        href={`/${variant.name.brand}/${rangeSlug}/${variant.name.variant}/${carModel.modelNameShort}`}
                     >
                         {motor}
                     </Link>
                 </td>
                 <td>
                     <Link
-                        href={`/${variant.name.brand}/${variant.name.range}/${variant.name.variant}/${carModel.modelNameShort}`}
+                        href={`/${variant.name.brand}/${rangeSlug}/${variant.name.variant}/${carModel.modelNameShort}`}
                     >
                         {carModel.minCosts[months][kilometers] === undefined ||
                         carModel.minCosts[months][kilometers].costScore ===
@@ -101,7 +103,7 @@ function ModelDisplay({ variant, displayNone }: Props) {
                 </td>
                 <td>
                     <Link
-                        href={`/${variant.name.brand}/${variant.name.range}/${variant.name.variant}/${carModel.modelNameShort}`}
+                        href={`/${variant.name.brand}/${rangeSlug}/${variant.name.variant}/${carModel.modelNameShort}`}
                     >
                         <div className={style.prices}>
                             {carModel.minCosts[months][kilometers]?.cost
@@ -114,7 +116,7 @@ function ModelDisplay({ variant, displayNone }: Props) {
                 </td>
                 <td>
                     <Link
-                        href={`/${variant.name.brand}/${variant.name.range}/${variant.name.variant}/${carModel.modelNameShort}`}
+                        href={`/${variant.name.brand}/${rangeSlug}/${variant.name.variant}/${carModel.modelNameShort}`}
                         className={style.detailsButton}
                     >
                         <span>Details</span>{" "}

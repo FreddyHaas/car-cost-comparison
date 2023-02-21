@@ -75,6 +75,11 @@ function CheapCars() {
             const carDataTemp: JSX.Element[] = []
 
             carList?.forEach((car) => {
+                const rangeSlug = car.modelInformation.range.replaceAll(
+                    "/",
+                    "_"
+                ) // Avoids errors in URL due to slashes
+
                 carDataTemp.push(
                     <tr
                         key={
@@ -84,7 +89,7 @@ function CheapCars() {
                     >
                         <td className={style.modelName}>
                             <Link
-                                href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
+                                href={`/${car.modelInformation.brand}/${rangeSlug}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
                                 {car.modelInformation.brand}{" "}
                                 {car.modelInformation.modelName.replace(
@@ -95,21 +100,21 @@ function CheapCars() {
                         </td>
                         <td className={style.bodyTypeCheap}>
                             <Link
-                                href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
+                                href={`/${car.modelInformation.brand}/${rangeSlug}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
                                 {car.modelInformation.bodyType}
                             </Link>
                         </td>
                         <td className={style.motorTypeCheap}>
                             <Link
-                                href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
+                                href={`/${car.modelInformation.brand}/${rangeSlug}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
                                 {car.modelInformation.motorType}
                             </Link>
                         </td>
                         <td className={style.priceContainer}>
                             <Link
-                                href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
+                                href={`/${car.modelInformation.brand}/${rangeSlug}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
                                 <div className={style.prices}>
                                     ab{" "}
@@ -124,7 +129,7 @@ function CheapCars() {
                         </td>
                         <td className={style.detailsButtonContainer}>
                             <Link
-                                href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
+                                href={`/${car.modelInformation.brand}/${rangeSlug}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                                 className={style.detailsButton}
                             >
                                 <span>Details </span>

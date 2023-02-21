@@ -23,11 +23,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     brands.forEach((brand) => {
         if (brandRangeList !== undefined) {
-            brandRangeList[brand].forEach((range: string) =>
+            brandRangeList[brand].forEach((range: string) => {
+                const rangeSlug = range.replaceAll("/", "_") // Avoid errors due to slashes in URL
                 paths.push({
-                    params: { brand, range },
+                    params: { brand, range: rangeSlug },
                 })
-            )
+            })
         }
         return undefined
     })
@@ -39,7 +40,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 export const getStaticProps: GetStaticProps = async (context) => {
     const brand = context.params ? context.params.brand : undefined
-    const range = context.params ? context.params.range : undefined
+    let range = context.params ? context.params.range : undefined
+
+    if (typeof range === "string") {
+        range = range.replaceAll("_", "/") // Reversal of replacement of slashes with underscore in creation of URL
+    }
 
     const docRef = db.collection("variants")
     const rangeListDocs = docRef.where("name.brand", "==", brand)
