@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react"
 import style from "@/styles/Search.module.css"
 import useSearch from "@/hooks/useSearch"
@@ -24,7 +26,11 @@ function YearsField({ setMonths }: Props) {
 
     return (
         <div className={style.formFieldDriving}>
-            <label className={style.label} htmlFor="yearsSelector">
+            <label
+                className={style.label}
+                htmlFor="yearsSelector"
+                onClick={(e) => e.preventDefault()}
+            >
                 <span className={style.block}>
                     Haltedauer{" "}
                     <FaInfoCircle

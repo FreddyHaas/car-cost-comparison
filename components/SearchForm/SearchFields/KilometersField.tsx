@@ -24,7 +24,11 @@ function KilometersField({ setKilometers }: Props) {
 
     return (
         <div className={style.formFieldDriving}>
-            <label className={style.label} htmlFor="kilometeresSelector">
+            <label
+                className={style.label}
+                htmlFor="kilometeresSelector"
+                onClick={(e) => e.preventDefault()}
+            >
                 Kilometer pro{" "}
                 <span className={style.block}>
                     Jahr{" "}
