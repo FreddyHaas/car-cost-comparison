@@ -22,24 +22,29 @@ function KilometersField({ setKilometers }: Props) {
         setInfoActive(!infoActive)
     }
 
+    const handleInfoClick = (
+        event:
+            | React.MouseEvent<SVGElement, MouseEvent>
+            | React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        event.preventDefault()
+        toggleInfoActive()
+    }
+
     return (
         <div className={style.formFieldDriving}>
-            <label
-                className={style.label}
-                htmlFor="kilometeresSelector"
-                onClick={(e) => e.preventDefault()}
-            >
+            <label className={style.label} htmlFor="kilometeresSelector">
                 Kilometer pro{" "}
                 <span className={style.block}>
                     Jahr{" "}
                     <FaInfoCircle
                         className={infoStyle.infoIcon}
-                        onClick={toggleInfoActive}
+                        onClick={handleInfoClick}
                     />
                     <InfoTextField
                         text="Wie viele Kilometer fahren Sie im Jahr?"
                         active={infoActive}
-                        toggleActive={toggleInfoActive}
+                        toggleActive={handleInfoClick}
                     />
                 </span>
             </label>

@@ -5,7 +5,11 @@ import style from "@/styles/InfoTextField.module.css"
 interface Props {
     text: string
     active: boolean
-    toggleActive: () => void
+    toggleActive: (
+        event:
+            | React.MouseEvent<SVGElement, MouseEvent>
+            | React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => void | (() => void)
     width?: number
 }
 

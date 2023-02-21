@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useState } from "react"
 import style from "@/styles/Search.module.css"
 import useSearch from "@/hooks/useSearch"
@@ -24,23 +22,28 @@ function YearsField({ setMonths }: Props) {
         setMonths(parseInt(event.target.value, 10))
     }
 
+    const handleInfoClick = (
+        event:
+            | React.MouseEvent<SVGElement, MouseEvent>
+            | React.MouseEvent<HTMLButtonElement, MouseEvent>
+    ) => {
+        event.preventDefault()
+        toggleInfoActive()
+    }
+
     return (
         <div className={style.formFieldDriving}>
-            <label
-                className={style.label}
-                htmlFor="yearsSelector"
-                onClick={(e) => e.preventDefault()}
-            >
+            <label className={style.label} htmlFor="yearsSelector">
                 <span className={style.block}>
                     Haltedauer{" "}
                     <FaInfoCircle
                         className={infoStyle.infoIcon}
-                        onClick={toggleInfoActive}
+                        onClick={handleInfoClick}
                     />
                     <InfoTextField
                         text="Wie lange möchten Sie das Auto fahren?"
                         active={infoActive}
-                        toggleActive={toggleInfoActive}
+                        toggleActive={handleInfoClick}
                     />
                 </span>
             </label>
