@@ -17,7 +17,9 @@ import {
 function CheapCars() {
     const { bodyType, vehicleClass, motorType } = useSearch()
     const { searchByModel, setSearchByModel } = useSearch()
-    const [carDataTable, setCarDataTable] = useState<JSX.Element[]>([])
+    const [carDataTable, setCarDataTable] = useState<JSX.Element[] | undefined>(
+        undefined
+    )
 
     useEffect(() => {
         if (searchByModel === true) {
@@ -80,7 +82,7 @@ function CheapCars() {
                             car.modelInformation.modelName
                         }
                     >
-                        <td>
+                        <td className={style.modelName}>
                             <Link
                                 href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
@@ -105,7 +107,7 @@ function CheapCars() {
                                 {car.modelInformation.motorType}
                             </Link>
                         </td>
-                        <td>
+                        <td className={style.priceContainer}>
                             <Link
                                 href={`/${car.modelInformation.brand}/${car.modelInformation.range}/${car.modelInformation.variant}/${car.modelInformation.modelNameShort}`}
                             >
@@ -141,7 +143,7 @@ function CheapCars() {
     }, [bodyType, vehicleClass, motorType])
 
     // Show error message if search did not have any valid results
-    if (carDataTable === undefined || carDataTable.length === 0) {
+    if (carDataTable !== undefined && carDataTable.length === 0) {
         return (
             <section className={style.pageContainer}>
                 <SearchFormContainer smallView />

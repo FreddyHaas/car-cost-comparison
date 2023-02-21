@@ -107,6 +107,8 @@
     border-radius: 4px;
     background: rgb(245, 245, 245);
     color: rgb(44, 44, 44);
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .formFieldDriving > select {
@@ -291,7 +293,7 @@
     }
 
     .searchFormSmall > .fieldContainer {
-        width: 100%;
+        width: 85%;
     }
 
     .searchFormSmall .searchIcon {
